@@ -1,0 +1,222 @@
+# Testing http requests with Visual Studio Code REST Client extension
+
+###########################
+## Users resource endpoints
+
+### get all users (requires admin token)
+GET http://localhost:3000/api/users
+Authorization: Bearer <ADMIN_TOKEN_HERE>
+
+### get user by id (requires admin token)
+GET http://localhost:3000/api/users/3
+Authorization: Bearer <ADMIN_TOKEN_HERE>
+
+### create a new user (user registration)
+POST http://localhost:3000/api/users
+content-type: application/json
+
+{
+  "username": "x345",
+  "password": "x1234567",
+  "email": "xx@example.com"
+}
+
+### modify an existing user by id (requires admin or user's own token)
+PUT http://localhost:3000/api/users/3
+Authorization: Bearer <USER_OR_ADMIN_TOKEN_HERE>
+content-type: application/json
+
+{
+  "username": "editedname",
+  "password": "editedpasswordx",
+  "email": "editedmail@example.com"
+}
+
+### delete a user (by id, requires admin token)
+DELETE http://localhost:3000/api/users/3
+Authorization: Bearer <ADMIN_TOKEN_HERE>
+
+### user login
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+  "username": "x345",
+  "password": "x1234567"
+}
+
+### get my user info (requires valid token)
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer <USER_TOKEN_HERE>
+
+###########################
+## (Diary)Entries
+
+### post a new entry (requires valid token)
+POST http://localhost:3000/api/entries
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "entry_date": "2025-02-27",
+  "mood": "iloinen",
+  "weight": 60,
+  "sleep_hours": 6,
+  "notes": "iloinen"
+}
+
+### Get user's entries (requires valid token)
+GET http://localhost:3000/api/entries
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Get a specific entry by id (requires admin token)
+GET http://localhost:3000/api/entries/1
+Authorization: Bearer <ADMIN_TOKEN_HERE>
+
+### Update an entry by id (requires valid token)
+PUT http://localhost:3000/api/entries/1
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "entry_date": "2025-02-27",
+  "mood": "neutraali",
+  "weight": 61,
+  "sleep_hours": 7,
+  "notes": "päivä oli ok"
+}
+
+### Delete an entry by id (requires valid token)
+DELETE http://localhost:3000/api/entries/1
+Authorization: Bearer <USER_TOKEN_HERE>
+
+###########################
+## Measurements resource endpoints
+
+### Get all measurements (requires valid token)
+GET http://localhost:3000/api/measurements
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Get a specific measurement by id (requires valid token)
+GET http://localhost:3000/api/measurements/1
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Create a new measurement (requires valid token)
+POST http://localhost:3000/api/measurements
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "user_id": 1,
+  "metric_date": "2024-01-01",
+  "heart_rate": 72,
+  "blood_pressure": "120/80",
+  "blood_sugar": 5.5,
+  "notes": "Normal readings"
+}
+
+### Update a measurement by id (requires valid token)
+PUT http://localhost:3000/api/measurements/1
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "user_id": 1,
+  "metric_date": "2024-01-01",
+  "heart_rate": 75,
+  "blood_pressure": "125/85",
+  "blood_sugar": 5.7,
+  "notes": "Slightly elevated"
+}
+
+### Delete a measurement by id (requires valid token)
+DELETE http://localhost:3000/api/measurements/1
+Authorization: Bearer <USER_TOKEN_HERE>
+
+###########################
+## Exercises resource endpoints
+
+### Get all exercises (requires valid token)
+GET http://localhost:3000/api/exercises
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Get a specific exercise by id (requires valid token)
+GET http://localhost:3000/api/exercises/1
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Create a new exercise (requires valid token)
+POST http://localhost:3000/api/exercises
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "user_id": 1,
+  "exercise_date": "2024-01-01",
+  "type": "Running",
+  "start_time": "08:00:00",
+  "end_time": "09:00:00",
+  "intensity": "High",
+  "notes": "Morning run"
+}
+
+### Update an exercise by id (requires valid token)
+PUT http://localhost:3000/api/exercises/1
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "user_id": 1,
+  "exercise_date": "2024-01-01",
+  "type": "Cycling",
+  "start_time": "08:00:00",
+  "end_time": "09:30:00",
+  "intensity": "Medium",
+  "notes": "Changed to cycling"
+}
+
+### Delete an exercise by id (requires valid token)
+DELETE http://localhost:3000/api/exercises/1
+Authorization: Bearer <USER_TOKEN_HERE>
+
+###########################
+## Medications resource endpoints
+
+### Get all medications (requires valid token)
+GET http://localhost:3000/api/medications
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Get a specific medication by id (requires valid token)
+GET http://localhost:3000/api/medications/1
+Authorization: Bearer <USER_TOKEN_HERE>
+
+### Create a new medication (requires valid token)
+POST http://localhost:3000/api/medications
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "user_id": 1,
+  "medication_date": "2024-01-01",
+  "name": "Ibuprofen",
+  "dosage": "200mg",
+  "taken_at": "08:00:00",
+  "notes": "Taken after breakfast"
+}
+
+### Update a medication by id (requires valid token)
+PUT http://localhost:3000/api/medications/1
+Authorization: Bearer <USER_TOKEN_HERE>
+content-type: application/json
+
+{
+  "user_id": 1,
+  "medication_date": "2024-01-01",
+  "name": "Ibuprofen",
+  "dosage": "400mg",
+  "taken_at": "08:00:00",
+  "notes": "Increased dosage"
+}
+
+### Delete a medication by id (requires valid token)
+DELETE http://localhost:3000/api/medications/1
+Authorization: Bearer <USER_TOKEN_HERE>
