@@ -41,7 +41,6 @@ const errorHandler = (err, req, res, next) => { // eslint-disable-line no-unused
  */
 const validationErrorHandler = (req, res, next) => {
   const errors = validationResult(req, { strictParams: ['body'] });
-  console.log('KEPPI', errors)
   if (!errors.isEmpty()) {
     const error = new Error('Bad Request');
     error.status = 400;
