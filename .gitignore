@@ -3,5 +3,5 @@
 node_modules
 .DS_Store
 .env
-create-db-user.sql
+db/create-db-user.sql
 docs/
