@@ -34,9 +34,7 @@ This repository contains the back-end server for the MyHealth application. The f
 ### Frontend
 - React.js
 - Vite
-- Tailwind CSS
-- Redux Toolkit (optional)
-
+  
 ## Installation
 
 ### Backend Installation
