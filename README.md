@@ -150,9 +150,6 @@ For full API documentation, refer to the project documentation or Postman collec
 ### Settings Page
 ![Settings form](image-5.png)
 
-## Contributors
-- [Rosahaut](https://github.com/Rosahaut)
-
 ## License
 This project is licensed under the MIT License.
 
