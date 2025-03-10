@@ -145,7 +145,7 @@ Authorization: Bearer <USER_TOKEN>
 ### Medication Management
 ![Category medication](image-3.png) ![Medication update and delete form](image-4.png)
 
-### Settings Page
+### Settings form in settings Page
 ![Settings form](image-5.png)
 
 ## License
