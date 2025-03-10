@@ -20,7 +20,7 @@ This repository contains the back-end server for the MyHealth application. The f
 ## Project Structure
 
 - **Backend:** Node.js + Express server with MySQL/MariaDB database.
-- **Frontend:** React.js application with Tailwind CSS.
+- **Frontend:** Node.js + Vite-project.
 
 ## Technologies Used
 
@@ -133,8 +133,6 @@ Authorization: Bearer <USER_TOKEN>
 
 ### Measurements, Exercises, and Medications
 - **CRUD functionalities for managing user health data.**
-
-For full API documentation, refer to the project documentation or Postman collection.
 
 ## Screenshots
 
